@@ -1,0 +1,46 @@
+.a{
+    padding-top: 2rem;
+    background-color: rgb(211, 209, 117);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    border-radius: 12px;
+    /* width: 50rem; */
+    /* max-width: 95%; */
+
+}
+
+.a label{
+    color: rgb(17, 11, 11);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    /* display: block; */
+
+
+}
+
+.a input{
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+   
+}
+
+.btn{
+    align-items: center;
+    margin-left: 25rem;
+    margin-top: 1rem;
+}
+
+.header{
+    padding: 1rem;
+    background-color: bisque;
+    text-align: center;
+}
+.cartbtn{
+}
