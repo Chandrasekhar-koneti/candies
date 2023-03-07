@@ -7,6 +7,7 @@ const Form=(props)=>{
   const [enteredName, setEnteredName] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDescription, setEnteredDescription] = useState('');
+  const[list,setlist]=useState([])
 
   const namehandler = (event) => {
     setEnteredName(event.target.value);
@@ -25,21 +26,28 @@ const Form=(props)=>{
 
     const candies= {
       name: enteredName,
-      amount: +enteredAmount,
+      amount: enteredAmount,
       description: enteredDescription
       ,
     };
-
-    props.onSave(candies);
+ setlist([...list,candies])
+    // props.onSave(candies);
     setEnteredName('');
     setEnteredAmount('');
     setEnteredDescription('');
   };
+
+  const additemtocart=(event)=>{
+    event.preventDefault()
+  }
+
+  console.log(props)
     return(
         <Fragment>
             <div className={classes.header}>
                 <div><h1 >CANDIES</h1></div>
-                {/* <Button variant="success" className={classes.cartbtn}> Cart</Button> */}
+                {/* <button className={classes.cartbtn} onClick={props.onshowcart}>Cart</button> */}
+                <Button variant="dark" className={classes.cartbtn} onClick={props.onshowcart} > Cart</Button>
 
             </div>
             
@@ -61,11 +69,30 @@ const Form=(props)=>{
                     </div>
 
                     <div>
-                    <Button variant="primary" className={classes.btn}>Add</Button>{' '}
+                    <Button variant="primary" className={classes.btn} type='submit'>Add</Button>{' '}
 
                     </div>
                 </div>
             </form>
+            <div className={classes.card}>
+                {list.length>0 && <p className={classes.para}>
+                    CANDIES LIST</p>}
+                <div>
+                    {list.length !==0 && list.map((candy,index)=>(
+                        <li key={index} style={{listStyle:'none'}} >
+                            <h2>
+                           <span className={classes.name}>{candy.name}</span>
+                           <span className={classes.des}>{candy.description}</span>
+                           <span className={classes.amount}>{candy.amount}</span>
+                            <span><Button variant="success">Add1</Button> </span>
+                            <span><Button variant="success">Add2</Button> </span>
+                            <span><Button variant="success">Add3</Button> </span>
+                            </h2>
+                            
+                        </li>
+                    ))}
+                </div>
+            </div>
         </Fragment>
     )
 }

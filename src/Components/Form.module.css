@@ -43,4 +43,39 @@
     text-align: center;
 }
 .cartbtn{
+    overflow-x:auto;
+}
+
+.card{
+    background-color: bisque;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    border-radius: 10px;
+}
+.para{
+    text-align: center;
+    font-weight: bold;
+}
+.name{
+    
+    font-weight: bold;
+    font-family:'Times New Roman', Times, serif ;
+    color: rgb(247, 29, 47);
+    padding-left: 1rem;
+}
+
+.des{
+    font-weight: bold;
+    font-family:'Times New Roman', Times, serif ;
+    color: rgb(247, 29, 47);
+}
+
+.amount{
+    font-weight: bold;
+    font-family:'Times New Roman', Times, serif ;
+    color: rgb(247, 29, 47);
+}
+
+.cartbtn{
+    position:absolute;top: 4%;right: 12%;
 }
