@@ -46,17 +46,7 @@ const Form=(props)=>{
     console.log('button1 clicked')
   }
 
-  const additemtocart2=(candy,index)=>{
-    // name.preventDefault()
-    context.additems({...candy,quantity:2,id:index})
-    console.log('add2 clicked',context)
-  }
-  
-  const additemtocart3=(candy,index)=>{
-    // name.preventDefault()
-    context.additems({...candy,quantity:3,id:index})
-    console.log('add3 clciked')
-  }
+
 
   // console.log(context.item)
   let cartitemcount= context.count
@@ -67,7 +57,7 @@ const Form=(props)=>{
     return(
         <Fragment>
             <div className={classes.header}>
-                <div><h1 >CANDIES</h1></div>
+                <div><h1 >MEDICINE</h1></div>
                 <Button variant="dark" className={classes.cartbtn} onClick={props.onshowcart}> Cart-<span>{cartitemcount}</span></Button>
 
                 {/* <button className={classes.cartbtn} onClick={props.onshowcart}>Cart</button> */}
@@ -78,7 +68,7 @@ const Form=(props)=>{
             <form onSubmit={submitHandler}>
                 <div className={classes.a}>
                     <div>
-                    <label style={{paddingLeft:'1rem'}} >Candy Name</label>
+                    <label style={{paddingLeft:'1rem'}} >Med-Name</label>
                     <input type='text' onChange={namehandler} value={enteredName}></input>
                     </div>
 
@@ -109,8 +99,6 @@ const Form=(props)=>{
                            <span className={classes.des}>{candy.description}</span>
                            <span className={classes.amount}>{candy.amount}</span>
                             <span><Button variant="success" onClick={()=>{additemtocart1(candy,index)}} >Add1</Button> </span>
-                            <span><Button variant="success" onClick={()=>{additemtocart2(candy,index)}} >Add2</Button> </span>
-                            <span><Button variant="success" onClick={()=>{additemtocart3(candy,index)}}>Add3</Button> </span>
                             </h2>
                             
                         </li>
