@@ -1,5 +1,6 @@
-import { Fragment, useState } from "react"
+import { Fragment, useContext, useState } from "react"
 import { Button } from "react-bootstrap"
+import Context from "./Context";
 import classes from './Form.module.css'
 
 
@@ -8,6 +9,8 @@ const Form=(props)=>{
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDescription, setEnteredDescription] = useState('');
   const[list,setlist]=useState([])
+
+  const context=useContext(Context)
 
   const namehandler = (event) => {
     setEnteredName(event.target.value);
@@ -37,17 +40,38 @@ const Form=(props)=>{
     setEnteredDescription('');
   };
 
-  const additemtocart=(event)=>{
-    event.preventDefault()
+  const additemtocart1=(candy,index)=>{
+    // name.preventDefault()
+    context.additems({...candy,quantity:1,id:index})
+    console.log('button1 clicked')
   }
 
-  console.log(props)
+  const additemtocart2=(candy,index)=>{
+    // name.preventDefault()
+    context.additems({...candy,quantity:2,id:index})
+    console.log('add2 clicked',context)
+  }
+  
+  const additemtocart3=(candy,index)=>{
+    // name.preventDefault()
+    context.additems({...candy,quantity:3,id:index})
+    console.log('add3 clciked')
+  }
+
+  // console.log(context.item)
+  let cartitemcount= context.count
+  
+ 
+
+
     return(
         <Fragment>
             <div className={classes.header}>
                 <div><h1 >CANDIES</h1></div>
+                <Button variant="dark" className={classes.cartbtn} onClick={props.onshowcart}> Cart-<span>{cartitemcount}</span></Button>
+
                 {/* <button className={classes.cartbtn} onClick={props.onshowcart}>Cart</button> */}
-                <Button variant="dark" className={classes.cartbtn} onClick={props.onshowcart} > Cart</Button>
+                {/* <button variant="dark" className={classes.cartbtn} onClick={props.onshowcart} > Cart-<span>{cartitemcount}</span></button> */}
 
             </div>
             
@@ -84,9 +108,9 @@ const Form=(props)=>{
                            <span className={classes.name}>{candy.name}</span>
                            <span className={classes.des}>{candy.description}</span>
                            <span className={classes.amount}>{candy.amount}</span>
-                            <span><Button variant="success">Add1</Button> </span>
-                            <span><Button variant="success">Add2</Button> </span>
-                            <span><Button variant="success">Add3</Button> </span>
+                            <span><Button variant="success" onClick={()=>{additemtocart1(candy,index)}} >Add1</Button> </span>
+                            <span><Button variant="success" onClick={()=>{additemtocart2(candy,index)}} >Add2</Button> </span>
+                            <span><Button variant="success" onClick={()=>{additemtocart3(candy,index)}}>Add3</Button> </span>
                             </h2>
                             
                         </li>

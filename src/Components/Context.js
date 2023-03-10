@@ -1,9 +1,23 @@
+// import React from "react"
+
+
+
+// const Context=React.createContext({
+//     item:[],
+//     additems:(items)=>{
+
+//     }
+// })
+
+// export default Context
+
 import React from "react"
 
 
 
 const Context=React.createContext({
-    item:items,
+    item:[],
+    count:0,
     additems:(items)=>{
 
     }
